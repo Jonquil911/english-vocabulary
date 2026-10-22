@@ -1,6 +1,6 @@
-# English Vocabulary — simple React midterm project
+# English Vocabulary
 
-A small, responsive React Single Page Application for learning English words.
+React Single Page Application for learning English words.
 
 ## Run locally
 
