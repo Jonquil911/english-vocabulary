@@ -70,17 +70,6 @@ On first load, the app copies 120 words into the browser's `localStorage` using 
 
 No external backend or environment variables are needed.
 
-## Quick defense notes
-
-- `App` is the common parent for the list, filters, and details. It stores `words`, loading status, filters, current page and view.
-- `AddWordForm` stores its own fields with `useState` because only that component needs them. Every input is controlled by React state.
-- `useEffect` runs `getWords()` on mount and when `retry` changes. Its cleanup uses the `cancelled` flag to ignore stale requests.
-- Clicking a card changes `selectedId` and `view` in `App`, which causes a re-render.
-- `WordList` uses `word.id` as a stable React key. `WordDetail` also receives a `key` to reset its local `showExample` state when a different word is selected.
-- The form calls `onAdd` from its parent. `App` calls `addWord` and adds the new word immutably using `[...previous, word]`.
-- Filtering and sorting are done before pagination. Changing filters resets the page to 1.
-- Loading/error/empty states appear in the list; success appears after adding a word.
-
 ## Note
 
 The app needs internet to install npm packages initially. Afterwards the simulated API does not need internet.
